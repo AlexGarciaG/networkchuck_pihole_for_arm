@@ -34,10 +34,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">networkchuck_pihole_for_arm</h3>
 
   <p align="center">
-    project_description
+    Recreation of “thenetworkchuck/networkchuck_pihole” container for arm architecture.
     <br />
     <a href="https://github.com/AlexGarciaG/networkchuck_pihole_for_arm"><strong>Explore the docs »</strong></a>
     <br />
@@ -85,7 +85,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `AlexGarciaG`, `networkchuck_pihole_for_arm`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+Currently, there is no official way to deploy the "thenetworkchuck/networkchuck_pihole" container on a Raspberry Pi, as it was designed specifically for the amd64 architecture. However, this issue can be addressed by utilizing the latest container from "pihole/pihole," which supports the arm architecture. To recreate the "thenetworkchuck/networkchuck_pihole" container for arm architecture, the scripts made by NetworkChuck will be integrated into the pihole container.
+
+In addition to this, several enhancements will be made to improve the user experience. For instance, the API for blocking and unlocking will be set to auto-start when the container is deployed. The addition of logs will also be implemented for better debugging and monitoring. Furthermore, users will have the option to create multiple lists of blocking websites, providing them with greater control over their network security.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -195,7 +197,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - Alexis Garcia Gutierrez - contact@alexgarciag.com
 
 Project Link: [https://github.com/AlexGarciaG/networkchuck_pihole_for_arm](https://github.com/AlexGarciaG/networkchuck_pihole_for_arm)
 
@@ -227,7 +229,7 @@ Project Link: [https://github.com/AlexGarciaG/networkchuck_pihole_for_arm](https
 [license-shield]: https://img.shields.io/github/license/AlexGarciaG/networkchuck_pihole_for_arm.svg?style=for-the-badge
 [license-url]: https://github.com/AlexGarciaG/networkchuck_pihole_for_arm/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://www.linkedin.com/in/garcia-alexis
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/

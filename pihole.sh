@@ -13,7 +13,7 @@ docker run -d \
     -v "$(pwd)/etc-dnsmasq.d/:/etc/dnsmasq.d/" \
     --dns=127.0.0.1 --dns=1.1.1.1 \
     --restart=unless-stopped \
-    thenetworkchuck/networkchuck_pihole
+    networkchuck_pihole_for_arm
 
 printf 'Starting up pihole container '
 for i in $(seq 1 20); do

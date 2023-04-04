@@ -107,33 +107,26 @@ In addition to this, several enhancements will be made to improve the user exper
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
+Install Docker by following the official documentation [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/) 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/AlexGarciaG/networkchuck_pihole_for_arm.git
    ```
-3. Install NPM packages
+2. Compile the docker file
    ```sh
-   npm install
+cd networkchuck_pihole_for_arm/docker
+docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Deploy container using Network Chuck’s script , which was modified to use the container for arm.
+   ```sh
+   cd networkchuck_pihole_for_arm/
+   sudo chmod u+x ./pihole.sh
+   sudo ./pihole.sh
    ```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,9 +135,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+In the current version, it works as its original creator intended which can be seen in his video [BLOCK EVERYTHING w/ PiHole on Docker, OpenDNS and IFTTT](https://www.youtube.com/watch?v=dH3DdLy574M&t=934s)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,10 +144,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Recreate original container for arm.
+- [ ] Execute the API for blocking and unlocking when the container is deployed
+- [ ] Add Logs for better debugging and monitoring
+- [ ] Add option to create multiple lists of blocking websites
 
 See the [open issues](https://github.com/AlexGarciaG/networkchuck_pihole_for_arm/issues) for a full list of proposed features (and known issues).
 
@@ -205,9 +196,8 @@ Project Link: [https://github.com/AlexGarciaG/networkchuck_pihole_for_arm](https
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [NetworkChuck](https://www.youtube.com/@NetworkChuck)
+* [othneildrew](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

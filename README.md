@@ -117,8 +117,8 @@ Install Docker by following the official documentation [Install Docker Engine on
    ```
 2. Compile the docker file
    ```sh
-cd networkchuck_pihole_for_arm/docker
-docker build -t networkchuck_pihole_for_arm -f Dockerfile .
+   cd networkchuck_pihole_for_arm/docker
+   docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
 3. Deploy container using Network Chuck’s script , which was modified to use the container for arm.
    ```sh

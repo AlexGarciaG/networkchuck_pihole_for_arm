@@ -90,10 +90,10 @@ In addition to this, several enhancements will be made to improve the user exper
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
+* [![Python][Python.js]][Python-url]
+* [![Flask][Flask.js]][Flask-url]
+* [![Docker][Docker.js]][Docker-url]
 
-* [Python][Python-url]
-* [Flask][Flask-url]
-* [Docker][Docker-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

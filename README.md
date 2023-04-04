@@ -1,5 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
+
+`<a name="readme-top"></a>`
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -8,9 +10,8 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
+
 <!--
 *** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
@@ -18,16 +19,16 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
-
+[Contributors][contributors-url]
+[Forks][forks-url]
+[Stargazers][stars-url]
+[Issues][issues-url]
+[MIT License][license-url]
+[LinkedIn][linkedin-url]
 
 <!-- PROJECT LOGO -->
+
 <br />
 <div align="center">
   <a href="https://github.com/AlexGarciaG/networkchuck_pihole_for_arm">
@@ -36,7 +37,7 @@
 
 <h3 align="center">networkchuck_pihole_for_arm</h3>
 
-  <p align="center">
+<p align="center">
     Recreation of “thenetworkchuck/networkchuck_pihole” container for arm architecture.
     <br />
     <a href="https://github.com/AlexGarciaG/networkchuck_pihole_for_arm"><strong>Explore the docs »</strong></a>
@@ -50,9 +51,8 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -78,9 +78,8 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
@@ -91,24 +90,22 @@ In addition to this, several enhancements will be made to improve the user exper
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* [![Python][Python.js]][Python-url]
-* [![Flask][Flask.js]][Flask-url]
-* [![Docker][Docker.js]][Docker-url]
-
-
+* [Python][Python-url]
+* [Flask][Flask-url]
+* [Docker][Docker-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
+
 ### Prerequisites
-Install Docker by following the official documentation [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/) 
+
+Install Docker by following the official documentation [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/)
+
 ### Installation
 
 1. Clone the repo
@@ -127,25 +124,22 @@ Install Docker by following the official documentation [Install Docker Engine on
    sudo ./pihole.sh
    ```
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 In the current version, it works as its original creator intended which can be seen in his video [BLOCK EVERYTHING w/ PiHole on Docker, OpenDNS and IFTTT](https://www.youtube.com/watch?v=dH3DdLy574M&t=934s)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
-- [ ] Recreate original container for arm.
-- [ ] Execute the API for blocking and unlocking when the container is deployed
+- [X] Recreate original container for arm.
+- [X] Execute the API for blocking and unlocking when the container is deployed
 - [ ] Add Logs for better debugging and monitoring
 - [ ] Add option to create multiple lists of blocking websites
 
@@ -153,9 +147,8 @@ See the [open issues](https://github.com/AlexGarciaG/networkchuck_pihole_for_arm
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -171,18 +164,16 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Your Name - Alexis Garcia Gutierrez - contact@alexgarciag.com
@@ -191,9 +182,8 @@ Project Link: [https://github.com/AlexGarciaG/networkchuck_pihole_for_arm](https
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 * [NetworkChuck](https://www.youtube.com/@NetworkChuck)
@@ -201,10 +191,10 @@ Project Link: [https://github.com/AlexGarciaG/networkchuck_pihole_for_arm](https
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/AlexGarciaG/networkchuck_pihole_for_arm.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlexGarciaG/networkchuck_pihole_for_arm/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/AlexGarciaG/networkchuck_pihole_for_arm.svg?style=for-the-badge

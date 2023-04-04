@@ -6,19 +6,9 @@ app = Flask(__name__)
 def action(deviceName):
     if deviceName != 'monstermash':
         if deviceName == 'block':
-            mesage = "Block successive"
-            try:
-                os.system('./blockdomains.sh')
-            except:
-                mesage = "Block Fail"
-            return mesage
+            os.system('./blockdomains.sh')
         if deviceName == 'unblock':
-            mesage = "Unblock successive"
-            try:
-                os.system('./unblockdomains.sh')
-            except:
-                mesage = "Unblock Fail"
-            return mesage
+            os.system('./unblockdomains.sh')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)

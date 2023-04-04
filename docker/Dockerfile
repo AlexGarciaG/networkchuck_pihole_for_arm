@@ -1,8 +1,11 @@
 FROM pihole/pihole:2023.03.1
 #ENV ARCH=amd64
+# Copy Files and give permissions
 WORKDIR /home
 COPY network/ network/
 WORKDIR /home/network
+RUN chmod u+x blockdomains.sh
+RUN chmod u+x unblockdomains.sh
 #Expose ports
 ## Pi Hole
 EXPOSE 53/tcp 
@@ -21,6 +24,3 @@ RUN apt-get install python3-pip -y
 RUN pip3 install -r requirements.txt
 # Launch Python script to block website.
 CMD [ "python3", "./network.py"]
-
-
-

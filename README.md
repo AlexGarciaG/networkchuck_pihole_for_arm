@@ -116,20 +116,73 @@ Install Docker by following the official documentation [Install Docker Engine on
    cd networkchuck_pihole_for_arm/docker
    docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
-3. Deploy container using Network Chuck’s script , which was modified to use the container for arm.
-   ```sh
-   cd networkchuck_pihole_for_arm/
-   sudo chmod u+x ./pihole.sh
-   sudo ./pihole.sh
-   ```
+3. Deploy container 
+  1. Deploy container using Network Chuck’s script , which was modified to use the container for arm.
 
+  Modify pihole.sh “-v "/myPath:/home/network" \” line 14  to the path were you will edit and create your domain list files. 
+    ```sh
+    cd networkchuck_pihole_for_arm/
+    sudo chmod u+x ./pihole.sh
+    sudo ./pihole.sh
+    ```
+  2. Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
+
+  Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files. 
+    ```yaml
+    # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+    services:
+      pihole:
+        container_name: pihole
+        image: networkchuck_pihole_for_arm
+        # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+        ports:
+          - "53:53/tcp"
+          - "53:53/udp"
+          - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
+          - "8080:80/tcp"
+          - "8081:8080"
+        environment:
+          TZ: 'America/Chicago'
+          WEBPASSWORD: 'cd6akobKg3i94kQKMWD*_aCcqN4_JD'
+        # Volumes store your data between container upgrades
+        volumes:
+          - './etc-pihole:/etc/pihole'
+          - './etc-dnsmasq.d:/etc/dnsmasq.d'
+          - /my_path:/home/network
+        #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+        cap_add:
+          - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+        restart: unless-stopped
+    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-In the current version, it works as its original creator intended which can be seen in his video [BLOCK EVERYTHING w/ PiHole on Docker, OpenDNS and IFTTT](https://www.youtube.com/watch?v=dH3DdLy574M&t=934s)
+The current version no longer works as the original version [BLOCK EVERYTHING w/ PiHole on Docker, OpenDNS and IFTTT](https://www.youtube.com/watch?v=dH3DdLy574M&t=934s) . To use the new version check the following tutorial.
+If we wish to have control over our favorite entertainment  websites like Netflix, Disney +, Prime Video and YouTube, the steps are: 
+1. Create a domain list. 
+  Create a copy of ` template.sh` and rename, example `entertainment.sh` and change domain1, domain2, domain3,.. to the desired domains.
+    ```sh
+    '(^|\.)Netflix\.com$' '(^|\.)disneyplus\.com$' '(^|\.)primevideo\.com$' '(^|\.)youtube\.com$'
+    ```
+  Note: The format '(^|\.)domain1\.com$' is used to block anything related to that domain. If you want to be more specific check the [Pi-hole documentation](https://docs.pi-hole.net/regex/tutorial/)
+2. Block domain list
+  Send a POST request to ` http://localhost:8080/block` with the body 
+    ```
+    {
+      "list_name": "blockdomains.sh"
+    }
+    ```
+3. Unblock domain list
+  Send a POST request to ` http://localhost:8080/unblock` with the body 
+    ```
+    {
+      "list_name": "blockdomains.sh"
+    }
+    ```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,8 +192,10 @@ In the current version, it works as its original creator intended which can be s
 
 - [X] Recreate original container for arm.
 - [X] Execute the API for blocking and unlocking when the container is deployed
-- [ ] Add Logs for better debugging and monitoring
 - [ ] Add option to create multiple lists of blocking websites
+    - [ x] Using files.
+    - [ ] Using data bases.
+- [ ] Add Logs for better debugging and monitoring
 
 See the [open issues](https://github.com/AlexGarciaG/networkchuck_pihole_for_arm/issues) for a full list of proposed features (and known issues).
 

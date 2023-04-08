@@ -1,0 +1,1 @@
+'(^|\.)domain1\.com$' '(^|\.)domain2\.com$' '(^|\.)domain3\.com$' '(^|\.)domain4\.com$' '(^|\.)domain5\.com$'

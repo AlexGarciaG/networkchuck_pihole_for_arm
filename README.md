@@ -117,7 +117,7 @@ Install Docker by following the official documentation [Install Docker Engine on
    docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
 3. Deploy container 
-  - Deploy container using Network Chuck’s script , which was modified to use the container for arm.
+  1. Using Network Chuck’s script , which was modified to use the container for arm.
 
   Modify pihole.sh “-v "/myPath:/home/network" \” line 14  to the path were you will edit and create your domain list files. 
 
@@ -127,7 +127,7 @@ Install Docker by following the official documentation [Install Docker Engine on
     sudo ./pihole.sh
     ```
 
-  - Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
+  2. Using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
 
   Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files. 
     

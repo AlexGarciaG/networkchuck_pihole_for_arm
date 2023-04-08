@@ -120,7 +120,7 @@ Install Docker by following the official documentation [Install Docker Engine on
   - Deploy container using Network Chuck’s script , which was modified to use the container for arm.
 
   Modify pihole.sh “-v "/myPath:/home/network" \” line 14  to the path were you will edit and create your domain list files. 
-  
+
     ```sh
     cd networkchuck_pihole_for_arm/
     sudo chmod u+x ./pihole.sh
@@ -130,31 +130,33 @@ Install Docker by following the official documentation [Install Docker Engine on
   - Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
 
   Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files. 
+    
+    
     ```yaml
-    # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
-    services:
-      pihole:
-        container_name: pihole
-        image: networkchuck_pihole_for_arm
-        # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
-        ports:
-          - "53:53/tcp"
-          - "53:53/udp"
-          - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
-          - "8080:80/tcp"
-          - "8081:8080"
-        environment:
-          TZ: 'America/Chicago'
-          WEBPASSWORD: 'cd6akobKg3i94kQKMWD*_aCcqN4_JD'
-        # Volumes store your data between container upgrades
-        volumes:
-          - './etc-pihole:/etc/pihole'
-          - './etc-dnsmasq.d:/etc/dnsmasq.d'
-          - /my_path:/home/network
-        #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
-        cap_add:
-          - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
-        restart: unless-stopped
+      # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+      services:
+        pihole:
+          container_name: pihole
+          image: networkchuck_pihole_for_arm
+          # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+          ports:
+            - "53:53/tcp"
+            - "53:53/udp"
+            - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
+            - "8080:80/tcp"
+            - "8081:8080"
+          environment:
+            TZ: 'America/Chicago'
+            WEBPASSWORD: 'cd6akobKg3i94kQKMWD*_aCcqN4_JD'
+          # Volumes store your data between container upgrades
+          volumes:
+            - './etc-pihole:/etc/pihole'
+            - './etc-dnsmasq.d:/etc/dnsmasq.d'
+            - /my_path:/home/network
+          #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+          cap_add:
+            - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+          restart: unless-stopped
     ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,7 +183,9 @@ If we wish to have control over our favorite entertainment  websites like Netfli
       "list_name": "blockdomains.sh"
     }
     ```
+
 3. Unblock domain list
+
   Send a POST request to ` http://localhost:8080/unblock` with the body 
     ```
     {

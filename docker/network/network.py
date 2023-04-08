@@ -1,7 +1,13 @@
 import time
-from os import path,system
+from os import path,system,listdir
 from flask import Flask, render_template, request
 app = Flask(__name__)
+#Copy template if domains_list is empty
+# Getting the list of directories
+dir = listdir('domains_list')
+# Checking if the list is empty or not
+if len(dir) == 0:
+    system("cp "+'template.sh'+" "+'domains_list/template.sh')
 # Block domains
 @app.route('/block',methods=['POST'])
 def block():
@@ -9,7 +15,7 @@ def block():
         'list_name':request.json['list_name'] 
         }
     if (path.exists(data['list_name'])):
-        file_domain_list = open(data['list_name'], "r")
+        file_domain_list = open('domains_list/'+data['list_name'], "r")
         domain_list = file_domain_list.read()
     else:
         return {'Estatus':'Failed execution'}
@@ -27,7 +33,7 @@ def unblock():
     }
 
     if (path.exists(data['list_name'])):
-        file_domain_list = open(data['list_name'], "r")
+        file_domain_list = open('domains_list/'+data['list_name'], "r")
         domain_list = file_domain_list.read()
     else:
         return {'Estatus':'Failed execution'}

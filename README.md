@@ -116,22 +116,12 @@ Install Docker by following the official documentation [Install Docker Engine on
    cd networkchuck_pihole_for_arm/docker
    docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
-3. Deploy container 
-    1. Using Network Chuck’s script , which was modified to use the container for arm.
+3. Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
 
-      Modify pihole.sh “-v "/myPath:/home/network" \” line 14  to the path were you will edit and create your domain list files. 
 
-        ```sh
-        cd networkchuck_pihole_for_arm/
-        sudo chmod u+x ./pihole.sh
-        sudo ./pihole.sh
-        ```
-
-    2. Using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
-
-      Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files. 
+      Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files; and "WEBPASSWORD: 'my_password'" from the "environment:" section to your desired password.                
         
-        
+
         ```yaml
           # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
           services:
@@ -147,12 +137,12 @@ Install Docker by following the official documentation [Install Docker Engine on
                 - "8081:8080"
               environment:
                 TZ: 'America/Chicago'
-                WEBPASSWORD: 'cd6akobKg3i94kQKMWD*_aCcqN4_JD'
+                WEBPASSWORD: 'my_password'
               # Volumes store your data between container upgrades
               volumes:
-                - './etc-pihole:/etc/pihole'
-                - './etc-dnsmasq.d:/etc/dnsmasq.d'
-                - /my_path:/home/network
+                - '/my_path/etc-pihole:/etc/pihole'
+                - '/my_path/etc-dnsmasq.d:/etc/dnsmasq.d'
+                - /my_path/domains_list:/home/network/domains_list
               #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
               cap_add:
                 - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed

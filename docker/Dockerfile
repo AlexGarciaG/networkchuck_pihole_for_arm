@@ -4,8 +4,6 @@ FROM pihole/pihole:2023.03.1
 WORKDIR /home
 COPY network/ network/
 WORKDIR /home/network
-RUN chmod u+x blockdomains.sh
-RUN chmod u+x unblockdomains.sh
 #Expose ports
 ## Pi Hole
 EXPOSE 53/tcp 

@@ -117,15 +117,17 @@ Install Docker by following the official documentation [Install Docker Engine on
    docker build -t networkchuck_pihole_for_arm -f Dockerfile .
    ```
 3. Deploy container 
-  1. Deploy container using Network Chuck’s script , which was modified to use the container for arm.
+  - Deploy container using Network Chuck’s script , which was modified to use the container for arm.
 
   Modify pihole.sh “-v "/myPath:/home/network" \” line 14  to the path were you will edit and create your domain list files. 
+  
     ```sh
     cd networkchuck_pihole_for_arm/
     sudo chmod u+x ./pihole.sh
     sudo ./pihole.sh
     ```
-  2. Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
+
+  - Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
 
   Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files. 
     ```yaml
@@ -163,12 +165,16 @@ Install Docker by following the official documentation [Install Docker Engine on
 The current version no longer works as the original version [BLOCK EVERYTHING w/ PiHole on Docker, OpenDNS and IFTTT](https://www.youtube.com/watch?v=dH3DdLy574M&t=934s) . To use the new version check the following tutorial.
 If we wish to have control over our favorite entertainment  websites like Netflix, Disney +, Prime Video and YouTube, the steps are: 
 1. Create a domain list. 
+  
   Create a copy of ` template.sh` and rename, example `entertainment.sh` and change domain1, domain2, domain3,.. to the desired domains.
     ```sh
     '(^|\.)Netflix\.com$' '(^|\.)disneyplus\.com$' '(^|\.)primevideo\.com$' '(^|\.)youtube\.com$'
     ```
+  
   Note: The format '(^|\.)domain1\.com$' is used to block anything related to that domain. If you want to be more specific check the [Pi-hole documentation](https://docs.pi-hole.net/regex/tutorial/)
-2. Block domain list
+
+2. Block domain list.
+
   Send a POST request to ` http://localhost:8080/block` with the body 
     ```
     {
@@ -193,7 +199,7 @@ If we wish to have control over our favorite entertainment  websites like Netfli
 - [X] Recreate original container for arm.
 - [X] Execute the API for blocking and unlocking when the container is deployed
 - [ ] Add option to create multiple lists of blocking websites
-    - [ x] Using files.
+    - [x] Using files.
     - [ ] Using data bases.
 - [ ] Add Logs for better debugging and monitoring
 

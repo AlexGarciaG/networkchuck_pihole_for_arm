@@ -119,7 +119,7 @@ Install Docker by following the official documentation [Install Docker Engine on
 3. Deploy container using a yaml file witch based on the [pihole/pihole](https://hub.docker.com/r/pihole/pihole) container. 
 
 
-      Change “- /my_path:/home/network”  from the yaml in the “volumes:” to the path were you will edit and create your domain list files; and "WEBPASSWORD: 'my_password'" from the "environment:" section to your desired password.                
+      Change “- /my_path” from the yaml in the “volumes:” to the path were you will edit and create your domain list files; and "WEBPASSWORD: 'my_password'" from the "environment:" section to your desired password.                
         
 
         ```yaml
@@ -148,6 +148,10 @@ Install Docker by following the official documentation [Install Docker Engine on
                 - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
               restart: unless-stopped
         ```
+4. Change the owner of the folder used to hold domains_list so you can modified and create list without the necessity to logging in the docker container or user admin permissions. 
+    ```sh
+      sudo chown $USER: /my_path/domains_list
+    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->

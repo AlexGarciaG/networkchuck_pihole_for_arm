@@ -106,7 +106,7 @@ In addition to this, several enhancements will be made to improve the user exper
 Install Docker by following the official documentation [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/)
 
 ### Installation
-
+If you are interested in the original version download the files from the [networkchuck_pihole_original](https://github.com/AlexGarciaG/networkchuck_pihole_for_arm/releases/tag/networkchuck_pihole_original) release. 
 1. Clone the repo
    ```sh
    git clone https://github.com/AlexGarciaG/networkchuck_pihole_for_arm.git
